@@ -3,9 +3,11 @@ package com.andersenlab.lecture1.homework1;
 public class HomeWorkApp {
 
     public static void main(String[] args) {
+
         printThreeWords();
         checkSumSign(-5,-4);
         printColor(-101);
+        compareNumbers(10, 10);
     }
 
     public static void printThreeWords() {
@@ -25,6 +27,6 @@ public class HomeWorkApp {
 
     public static void compareNumbers(int a, int b) {
         if (a >= b) System.out.println("a >= b");
-        else System.out.println("“a < b”");
+        else System.out.println("a < b");
     }
 }
