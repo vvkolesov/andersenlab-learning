@@ -139,7 +139,7 @@ public class HomeWorkApp {
     }
 
     public static void drawXinMatrix(int i, int j) {
-        int[][] matrix = new int[i][j];
+
         int counter = 1;
 
         for (int a = 0; a < i; a++) {
