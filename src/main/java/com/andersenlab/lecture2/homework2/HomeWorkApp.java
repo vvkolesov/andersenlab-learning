@@ -2,6 +2,18 @@ package com.andersenlab.lecture2.homework2;
 
 import java.util.Arrays;
 
+import static com.andersenlab.lecture2.homework2.services.BooleanNumberVerification.booleanNumberVerification;
+import static com.andersenlab.lecture2.homework2.services.ConvertArgumentsToArray.convertArgumentsToArray;
+import static com.andersenlab.lecture2.homework2.services.DoubleNumbersLessThanSix.doubleNumbersLessThanSix;
+import static com.andersenlab.lecture2.homework2.services.DrawXinMatrix.drawXinMatrix;
+import static com.andersenlab.lecture2.homework2.services.ElementMover.elementMover;
+import static com.andersenlab.lecture2.homework2.services.FillOutArray.fillOutArray;
+import static com.andersenlab.lecture2.homework2.services.LeapYearVerification.leapYearVerification;
+import static com.andersenlab.lecture2.homework2.services.NumberVerification.numberVerification;
+import static com.andersenlab.lecture2.homework2.services.PrintStringNTimes.printStringNTimes;
+import static com.andersenlab.lecture2.homework2.services.SumVerification.sumVerification;
+import static com.andersenlab.lecture2.homework2.services.ArrayChanger.arrayChanger;
+
 public class HomeWorkApp {
 
     public static void main(String[] args) {
@@ -74,121 +86,4 @@ public class HomeWorkApp {
         int i = -2;
         elementMover(intArray, i);
     }
-
-    public static void sumVerification(int a, int b) {
-
-        System.out.println(a + b >= 10 && a + b <= 20);
-    }
-
-    public static void numberVerification(int a) {
-
-        String answer = (a > -1) ? "the number is positive" : "the number is negative";
-        System.out.println(answer);
-    }
-
-    public static void booleanNumberVerification(int a) { System.out.println(a > -1); }
-
-    public static void printStringNTimes(String text, int a) {
-
-        for (int i = 0; i < a; i++) {
-            System.out.println(text);
-        }
-    }
-
-    public static void leapYearVerification(int year) {
-
-        if (year <= 0) {
-            System.out.println(false);
-        }
-        else if ((year / 100) % 4 != 0) {
-            System.out.println(false);
-        }
-        else {
-            System.out.println((year % 4 == 0) || (year % 400 == 0));
-        }
-    }
-
-    public static void arrayChanger(int[] numbers) {
-
-        System.out.println(Arrays.toString(numbers));
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = numbers[i] == 0 ? numbers[i] = 1 : numbers[i];
-        }
-        System.out.println(Arrays.toString(numbers));
-    }
-
-    public static void fillOutArray(int[] numbers) {
-
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = i + 1;
-        }
-        System.out.println(
-                numbers.length + "\n" +
-                numbers[0] + "\n" +
-                numbers[numbers.length - 1]
-        );
-    }
-
-    public static void doubleNumbersLessThanSix(int[] numbers) {
-
-        System.out.println(Arrays.toString(numbers));
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = numbers[i] < 6 ? numbers[i] *= 2 : numbers[i];
-        }
-        System.out.println(Arrays.toString(numbers));
-    }
-
-    public static void drawXinMatrix(int i, int j) {
-
-        int counter = 1;
-
-        for (int a = 0; a < i; a++) {
-            for (int b = 0; b < j; b++) {
-                if ((a == b) || ((a == (counter - 1)) && (b == (i - counter)))) {
-                    System.out.print("\\ ");
-                } else {
-                    System.out.print("O ");
-                }
-            }
-            System.out.println();
-            counter++;
-        }
-    }
-
-    public static int[] convertArgumentsToArray(int len, int initialValue) {
-
-        int[] convertedArray = new int[len];
-        Arrays.fill(convertedArray, initialValue);
-        return convertedArray;
-    }
-
-    public static void elementMover(int[] array, int n) {
-
-        if (array.length != 0) {
-            System.out.println(Arrays.toString(array));
-
-            if (n > 0) {
-                for (int i = 1; i <= n; i++) {
-                    int lastArrayElement = array[array.length - 1];
-                    for (int j = array.length - 2; j >= 0; j--) {
-                        array[j + 1] = array[j];
-                    }
-                    array[0] = lastArrayElement;
-                }
-            } else if (n < 0) {
-                for (int i = 0; i >= n; i--) {
-                    int firstArrayElement = array[0];
-                    for (int j = 1; j < array.length; j++) {
-                        array[j - 1] = array[j];
-                    }
-                    array[array.length - 1] = firstArrayElement;
-                }
-            } else {
-                System.out.println("No changes");
-            }
-
-            System.out.println(Arrays.toString(array));
-        }
-    }
-
 }
