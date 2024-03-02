@@ -19,6 +19,7 @@ public class LoginTest extends BaseTest {
         loginPage.load(url)
                 .typeCredential(email, password)
                 .clickLoginButton();
+        Assert.assertEquals(loginPage.nextPageChecker(), email);
     }
 
     @Test

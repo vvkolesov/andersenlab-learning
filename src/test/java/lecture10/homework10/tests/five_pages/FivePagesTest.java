@@ -1,6 +1,7 @@
 package lecture10.homework10.tests.five_pages;
 
 import lecture10.homework10.base.BaseTest;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.testng.annotations.Test;
 

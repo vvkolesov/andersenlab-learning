@@ -4,6 +4,7 @@ import lecture10.homework10.base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.Collections;
 import java.util.List;
@@ -14,6 +15,7 @@ public class LoginPage extends BasePage {
     private final By passwordField = By.xpath("//input[@name='password']");
     private final By submitButton = By.xpath("//button[@type='submit']");
     private final By errorMessage = By.xpath("//span[contains(text(),'Required')]");
+    private final By emailValue = By.xpath("//div[4]/p[2]");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -33,6 +35,10 @@ public class LoginPage extends BasePage {
     public LoginPage clickLoginButton() {
         driver.findElement(submitButton).click();
         return this;
+    }
+
+    public String nextPageChecker() {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(emailValue)).getText();
     }
 
     public List<WebElement> errorMessages() {
