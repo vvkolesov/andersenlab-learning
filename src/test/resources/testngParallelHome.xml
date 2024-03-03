@@ -1,0 +1,15 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<suite name="testngParallelHome" thread-count="2" parallel="tests">
+    <test name="Parallel tests 1" >
+        <classes>
+            <class name="lecture11.homework11.parallelismus.ParallelClass1"/>
+        </classes>
+    </test>
+
+    <test name="Parallel tests 2" >
+        <classes>
+            <class name="lecture11.homework11.parallelismus.ParallelClass2"/>
+        </classes>
+    </test>
+</suite>
