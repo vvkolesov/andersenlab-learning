@@ -1,0 +1,15 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<suite name="testngParametersHome" >
+    <test name="Parametrize" >
+        <parameters>
+            <parameter name="email" value="email@email.nl, email@email.nl, email@email.be"/>
+            <!--<parameter name="email" value="email@email.nl"/>
+            <parameter name="email" value="email@email.be"/>-->
+            <parameter name="password" value="password"/>
+        </parameters>
+        <classes>
+            <class name="lecture11.homework11.data_providing.tests.LoginTest"/>
+        </classes>
+    </test>
+</suite>
