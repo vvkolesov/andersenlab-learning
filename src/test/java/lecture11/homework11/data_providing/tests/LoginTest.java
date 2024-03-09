@@ -40,7 +40,6 @@ public class LoginTest extends BaseTest {
     @Test(dataProvider = "userCredentials")
     public void loginWithCorrectCredentials(String email, String password) throws InterruptedException {
 
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.load(url)
                 .typeCredential(email, password)

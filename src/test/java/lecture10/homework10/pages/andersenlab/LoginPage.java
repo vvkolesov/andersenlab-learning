@@ -1,10 +1,13 @@
 package lecture10.homework10.pages.andersenlab;
 
 import lecture10.homework10.base.BasePage;
+import lecture12.homework12.pages.andersenlab.RegistrationPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.time.Duration;
 import java.util.Collections;
 import java.util.List;
 
@@ -14,6 +17,8 @@ public class LoginPage extends BasePage {
     private final By passwordField = By.xpath("//input[@name='password']");
     private final By submitButton = By.xpath("//button[@type='submit']");
     private final By errorMessage = By.xpath("//span[contains(text(),'Required')]");
+    private final By emailValue = By.xpath("//div[4]/p[2]");
+    private final By registrationButton = By.xpath("//a[@href='/registration']");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -35,7 +40,17 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    public String nextPageChecker() {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(emailValue)).getText();
+    }
+
     public List<WebElement> errorMessages() {
         return driver.findElements(errorMessage);
     }
+
+    public RegistrationPage clickRegistrationButton() {
+        driver.findElement(registrationButton).click();
+        return new RegistrationPage(driver);
+    }
+
 }
