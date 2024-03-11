@@ -4,7 +4,10 @@ import lecture13.homework13.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
@@ -12,13 +15,18 @@ import java.util.List;
 
 public class GooglePage extends BasePage {
 
-    private final By searchBar = By.xpath("//textarea[@name='q']");
-    private final By guinnessTitle = By.xpath("//h3[contains(text(), 'Create account')]");
-    private final By hyrtutorialsTitle = By.xpath("//h3[contains(text(), 'AlertsDemo')]");
-    private final By declineAllButton = By.xpath("//*[@id='W0wltc']/div");
+    @FindBy(xpath = "//textarea[@name='q']")
+    private WebElement searchBar;
+    @FindBy(xpath = "//h3[contains(text(), 'Create account')]")
+    private WebElement guinnessTitle;
+    @FindBy(xpath = "//h3[contains(text(), 'AlertsDemo')]")
+    private WebElement hyrtutorialsTitle;
+    @FindBy(xpath = "//*[@id='W0wltc']/div")
+    private WebElement declineAllButton;
 
     public GooglePage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     public List<String> getTabs() {
@@ -27,32 +35,33 @@ public class GooglePage extends BasePage {
 
     public GooglePage load(String url) {
         driver.get(url);
-        driver.findElement(declineAllButton).click();
+        declineAllButton.click();
         return this;
     }
 
     public GooglePage openTabs(List<String> urlsList) {
         new Actions(driver)
-                .sendKeys(driver.findElement(searchBar), urlsList.get(0))
+                .sendKeys(searchBar, urlsList.get(0))
                 .sendKeys(Keys.ENTER)
                 .perform();
 
+        waitForClickable(guinnessTitle);
         new Actions(driver)
                 .keyDown(Keys.CONTROL)
-                .click(wait.until(ExpectedConditions.elementToBeClickable(guinnessTitle)))
+                .click(guinnessTitle)
                 .keyUp(Keys.CONTROL)
                 .perform();
 
-        driver.findElement(searchBar).clear();
+        searchBar.clear();
 
         new Actions(driver)
-                .sendKeys(driver.findElement(searchBar), urlsList.get(1))
+                .sendKeys(searchBar, urlsList.get(1))
                 .sendKeys(Keys.ENTER)
                 .perform();
 
         new Actions(driver)
                 .keyDown(Keys.CONTROL)
-                .click(driver.findElement(hyrtutorialsTitle))
+                .click(hyrtutorialsTitle)
                 .keyUp(Keys.CONTROL)
                 .perform();
         return this;

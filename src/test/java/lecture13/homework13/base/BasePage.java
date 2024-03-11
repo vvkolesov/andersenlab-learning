@@ -1,6 +1,8 @@
 package lecture13.homework13.base;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
@@ -19,5 +21,17 @@ public class BasePage {
     public BasePage load(String url) {
         driver.get(url);
         return this;
+    }
+
+    protected void waitForVisibility(WebElement element) throws Error{
+        Duration duration = Duration.ofSeconds(30);
+        new WebDriverWait(driver, duration)
+                .until(ExpectedConditions.visibilityOf(element));
+    }
+
+    protected void waitForClickable(WebElement element) throws Error{
+        Duration duration = Duration.ofSeconds(30);
+        new WebDriverWait(driver, duration)
+                .until(ExpectedConditions.visibilityOf(element));
     }
 }

@@ -3,14 +3,20 @@ package lecture13.homework13.pages.automationpractice;
 import lecture13.homework13.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends BasePage {
 
-    private final By searchField = By.id("search_query_top");
-    private final By searchButton = By.xpath("//button[@name='submit_search']");
+    @FindBy(id = "search_query_top")
+    private WebElement searchField;
+    @FindBy(xpath = "//button[@name='submit_search']")
+    private WebElement searchButton;
 
     public HomePage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     public HomePage load(String url){
@@ -19,12 +25,12 @@ public class HomePage extends BasePage {
     }
 
     public HomePage typeItemInSearchbar(String item) {
-        driver.findElement(searchField).sendKeys(item);
+        searchField.sendKeys(item);
         return this;
     }
 
     public HomePage clickSearchButton() {
-        driver.findElement(searchButton).click();
+        searchButton.click();
         return this;
     }
 

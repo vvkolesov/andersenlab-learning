@@ -3,35 +3,43 @@ package lecture13.homework13.pages.automationpractice;
 import lecture13.homework13.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class StorePage extends BasePage {
 
-    private final By listViewButton = By.id("list");
-    private final By addToCompareButton = By.xpath("(//a[@class='add_to_compare'])[1]");
-    private final By flyoutWomen = By.xpath("//a[@title='Women']");
-    private final By compareButton = By.xpath("//button/span[contains(text(),'Compare')]");
+    @FindBy(id = "list")
+    private WebElement listViewButton;
+    @FindBy(xpath = "(//a[@class='add_to_compare'])[1]")
+    private WebElement addToCompareButton;
+    @FindBy(xpath = "//a[@title='Women']")
+    private WebElement flyoutWomen;
+    @FindBy(xpath = "//button/span[contains(text(),'Compare')]")
+    private WebElement compareButton;
 
     public StorePage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     public StorePage changeToListView() {
-        driver.findElement(listViewButton).click();
+        listViewButton.click();
         return this;
     }
 
     public StorePage addToCompare() {
-        driver.findElement(addToCompareButton).click();
+        addToCompareButton.click();
         return this;
     }
 
     public StorePage goToWomenSection() {
-        driver.findElement(flyoutWomen).click();
+        flyoutWomen.click();
         return this;
     }
 
     public StorePage goToComparisonPage() {
-        driver.findElement(compareButton).click();
+        compareButton.click();
         return this;
     }
 }
