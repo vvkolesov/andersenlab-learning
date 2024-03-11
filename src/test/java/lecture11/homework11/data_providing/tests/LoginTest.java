@@ -1,19 +1,11 @@
 package lecture11.homework11.data_providing.tests;
 
-import lecture10.homework10.base.BaseTest;
-import lecture10.homework10.pages.andersenlab.LoginPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import lecture13.homework13.base.BaseTest;
+import lecture13.homework13.pages.andersenlab.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class LoginTest extends BaseTest {
     //Task4:
