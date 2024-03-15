@@ -1,0 +1,10 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<suite name="Andersonlab pogin page">
+    <test name="Login form">
+        <classes>
+            <class name="lecture13.homework13.tests.andersenlab.LoginTest"/>
+            <class name="lecture13.homework13.tests.andersenlab.RegistrationTest"/>
+        </classes>
+    </test>
+</suite>

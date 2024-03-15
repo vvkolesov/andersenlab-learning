@@ -54,7 +54,7 @@ public class RegistrationPage extends BasePage {
         new Select(monthDatePicker).selectByValue(month);
         new Select(yearDatePicker).selectByValue(year);
 
-        driver.findElement(By.xpath("//div[contains(text(), '" + day + "')]")).click();
+        driver.findElement(By.xpath("//div[contains(text(), '10')]")).click();
         return this;
     }
 

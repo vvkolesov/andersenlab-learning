@@ -30,8 +30,8 @@ public class HyrtutorialsPage extends BasePage {
     }
 
     public void alertBoxButton() {
-       waitForVisibility(declineAllButton);
-       declineAllButton.click();
+        //waitForVisibility(declineAllButton);
+        declineAllButton.click();
         new Actions(driver)
                 .click(alertBoxButton)
                 .perform();

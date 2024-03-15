@@ -28,7 +28,7 @@ public class End2EndTest extends BaseTest {
     private final String promptBoxOutput = "You entered text Final step of this task in propmt popup";
 
 
-    //2.	Необходимо автоматизировать сценарий, который показан на видео “Сценарий для автоматизации Лекция 12.mp4”.
+    //2.	Необходимо автоматизировать сценарий, который показан на видео “Сценарий для автоматизации Лекция 12.mp4”.q
     @Test
     public void automationScenarioOne() throws InterruptedException {
         List<String> urlsList =

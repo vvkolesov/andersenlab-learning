@@ -44,7 +44,7 @@ public class GuinnessPage extends BasePage {
     }
 
     public void guinnessRegistration(UserRegistrationData userRegistrationData) {
-       waitForVisibility(confirmEmailField);
+        //waitForVisibility(confirmEmailField);
         new Actions(driver)
                 .sendKeys(lastNameField, userRegistrationData.getLastName())
                 .sendKeys(firstNameField, userRegistrationData.getFirstName())
